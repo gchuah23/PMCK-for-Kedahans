@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8">
+  <title>PMCK | Hospital Bahasa Kedah – Dekat Dengan Hati</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hospital pertama di Kedah yang bercakap loghat Kedah – 24 jam, doktor pakar, IPO recognised. Buat janji terus dari WhatsApp.">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- INLINE CSS : one-file deployment -->
+  <style>
+    :root{
+      --pmck-blue:#0066cc;
+      --pmck-gold:#f4d03f;
+      --pmck-green:#00a651;
+      --text:#222;
+      --lite:#f8f9fa;
+      --max:1200px;
+      --shadow:0 4px 12px rgba(0,0,0,.15);
+      --radius:10px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;font-family:'Inter',sans-serif}
+    html{scroll-behavior:smooth}
+    img{max-width:100%;height:auto;display:block}
+    a{text-decoration:none;color:inherit}
+    body{background:var(--lite);color:var(--text);line-height:1.6}
+
+    /* sticky nav */
+    header{position:fixed;top:0;width:100%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.1);z-index:999}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1rem;max-width:var(--max);margin:auto}
+    .logo{font-weight:700;font-size:1.25rem;color:var(--pmck-blue)}
+    .nav-links{display:flex;gap:1.5rem;list-style:none}
+    .nav-links a{font-weight:600;font-size:.9rem;position:relative}
+    .nav-links a:after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--pmck-gold);transition:.3s}
+    .nav-links a:hover:after{width:100%}
+    .hamburger{display:none;font-size:1.5rem;cursor:pointer;color:var(--pmck-blue)}
+
+    /* hero ken-burns */
+    .hero{position:relative;height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff}
+    .hero-bg{position:absolute;top:-10%;left:-10%;width:120%;height:120%;background:url("https://drive.google.com/uc?export=view&id=PUT_HERO_ID_HERE") center/cover no-repeat;animation:ken 20s ease-in-out infinite}
+    @keyframes ken{0%,100%{transform:scale(1) translate(0,0)}50%{transform:scale(1.1) translate(-2%,2%)}}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,102,204,.7),rgba(0,166,81,.6))}
+    .hero-content{position:relative;z-index:2;padding:1rem}
+    .hero h1{font-size:2.2rem;margin-bottom:1rem}
+    .hero p{font-size:1.1rem;margin-bottom:2rem}
+    .btn{display:inline-block;padding:.85rem 1.8rem;border-radius:var(--radius);font-weight:600;transition:.3s}
+    .btn-gold{background:var(--pmck-gold);color:#111}
+    .btn-gold:hover{background:#e6c229;transform:translateY(-2px)}
+    .btn-white{background:#fff;color:var(--pmck-blue)}
+    .btn-white:hover{background:#f1f1f1}
+
+    /* sections */
+    section{padding:4rem 1rem}
+    .container{max-width:var(--max);margin:auto}
+    .sect-title{text-align:center;font-size:2rem;margin-bottom:.5rem;color:var(--pmck-blue)}
+    .sect-sub{text-align:center;margin-bottom:2.5rem;color:#555}
+
+    /* grid cards */
+    .grid{display:grid;gap:1.5rem}
+    .card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:.3s}
+    .card:hover{transform:translateY(-5px)}
+    .card img{height:180px;object-fit:cover;width:100%}
+    .card-body{padding:1.2rem}
+    .card h4{margin-bottom:.5rem;color:var(--pmck-blue)}
+
+    /* doctor list */
+    .doc-list{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+    .doc-card{display:flex;gap:1rem;align-items:center}
+    .doc-img{width:70px;height:70px;border-radius:50%;object-fit:cover;background:var(--pmck-blue);color:#fff;display:grid;place-content:center;font-size:1.5rem}
+    .doc-info p{font-size:.85rem;color:#555}
+
+    /* form */
+    form{display:grid;gap:1rem;background:#fff;padding:2rem;border-radius:var(--radius);box-shadow:var(--shadow)}
+    input,textarea,select{width:100%;padding:.75rem;border:1px solid #ccc;border-radius:var(--radius);font-size:1rem}
+    input:focus,textarea:focus,select:focus{outline:none;border-color:var(--pmck-blue)}
+    .form-btn{background:var(--pmck-blue);color:#fff;cursor:pointer}
+    .form-btn:hover{background:#0052a3}
+
+    /* footer */
+    footer{background:var(--pmck-blue);color:#fff;text-align:center;padding:2rem 1rem;font-size:.9rem}
+    .social a{margin:0 .5rem;font-size:1.2rem;color:#fff}
+
+    /* sticky whatsapp */
+    .wa-fix{position:fixed;bottom:20px;right:20px;background:var(--pmck-green);color:#fff;width:60px;height:60px;border-radius:50%;display:grid;place-content:center;font-size:1.8rem;box-shadow:var(--shadow);z-index:1000;transition:.3s}
+    .wa-fix:hover{transform:scale(1.1) rotate(8deg)}
+
+    /* hamburger show on mobile */
+    @media (max-width:768px){
+      .nav-links{display:none;flex-direction:column;gap:1rem;background:#fff;position:absolute;top:100%;left:0;right:0;padding:1rem;box-shadow:0 4px 6px rgba(0,0,0,.1)}
+      .nav-links.open{display:flex}
+      .hamburger{display:block}
+      .hero h1{font-size:1.8rem}
+    }
+  </style>
+<base target="_blank">
+</head>
+<body>
+<!-- =========  NAV  ========= -->
+<header>
+  <nav class="nav">
+    <div class="logo">🏥 PMCK <span style="font-weight:400">Hospital Bahasa Kedah</span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Laman</a></li>
+      <li><a href="#about">Tentang</a></li>
+      <li><a href="#specialities">Pakar</a></li>
+      <li><a href="#gallery">Galeri</a></li>
+      <li><a href="#contact">Hubungi</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">☰</div>
+  </nav>
+</header>
+
+<!-- =========  HERO  ========= -->
+<section id="home" class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Hospital Pertama di Kedah Yang Bercakap Loghat Hang</h1>
+    <p>Sakit? Tak payah jauh-jauh ke Penang. PMCK Alor Setar – 24 jam, doktor pakar, bahasa Kedah. Buat janji terus dari WhatsApp.</p>
+    <a href="https://wa.me/601110523600" class="btn btn-gold">📱 WhatsApp Sekarang</a>
+    <a href="tel:+6047342888" class="btn btn-white">☎ 04-734 2888</a>
+  </div>
+</section>
+
+<!-- =========  ABOUT  ========= -->
+<section id="about" class="container">
+  <h2 class="sect-title">Kenapa Warga Kedah Pilih PMCK?</h2>
+  <p class="sect-sub">Laporan menunjukkan hanya 14.3 % rakyat Kedah guna hospital sendiri – kami ubah situasi ini.</p>
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+    <div class="card">
+      <img src="https://drive.google.com/uc?export=view&id=491473207_1121218200022450_76218814975363545_n" alt="Dekat & mesra" loading="lazy">
+      <div class="card-body">
+        <h4>5 Minit dari PLUS</h4>
+        <p>Keluar tol E178 Alor Setar Utara – terus sampai. Parkir & valet PERCUMA.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://drive.google.com/uc?export=view&id=548517297_1246187607525508_5365427499071745734_n" alt="Bahasa Kedah" loading="lazy">
+      <div class="card-body">
+        <h4>Cakap Loghat Kau</h4>
+        <p>Staff 90 % anak jati Utara. Tak payah explain panjang – kami paham “sakit perut” vs “kenyang tekak”.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://drive.google.com/uc?export=view&id=559101723_1258412246303044_691692751901458010_n" alt="24 jam" loading="lazy">
+      <div class="card-body">
+        <h4>24 Jam, 365 Hari</h4>
+        <p>Emergency, bersalin, kecemasan jantung – sentiasa ada pakar & ICU berteknologi tinggi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========  SPECIALITIES  ========= -->
+<section id="specialities" class="container">
+  <h2 class="sect-title">Doktor Pakar Kami</h2>
+  <p class="sect-sub">Kenali barisan doktor – ramai berpengalaman di hospital besar MOH & luar negara.</p>
+  <div class="grid doc-list">
+    <div class="card doc-card">
+      <img src="https://drive.google.com/uc?export=view&id=PUT_DR_LIM_ID" alt="Dato' Dr. Lim Tze Chou" class="doc-img" onerror="this.src='👨‍⚕️'">
+      <div class="doc-info">
+        <h4>Dato' Dr. Lim Tze Chou</h4>
+        <p>Clinical Director O&G – MMC 47269<br>Kehamilan berisiko tinggi, laparoskopi</p>
+      </div>
+    </div>
+    <div class="card doc-card">
+      <img src="https://drive.google.com/uc?export=view&id=PUT_DR_SAMAD_ID" alt="Dr. Abdul Samad" class="doc-img" onerror="this.src='👨‍⚕️'">
+      <div class="doc-info">
+        <h4>Dr. Abdul Samad Lazim</h4>
+        <p>Orthopaedics & Trauma – MMC 36895<br>Sports injury, arthroskopi, fracture</p>
+      </div>
+    </div>
+    <div class="card doc-card">
+      <img src="https://drive.google.com/uc?export=view&id=PUT_DR_ANUAR_ID" class="doc-img" onerror="this.src='👨‍⚕️'">
+      <div class="doc-info">
+        <h4>Col. Dr. Mohamad Anuar</h4>
+        <p>Interventional Cardiologist – MMC 39273<br>Angiogram, pacemaker, ACLS</p>
+      </div>
+    </div>
+    <div class="card doc-card">
+      <img src="https://drive.google.com/uc?export=view&id=PUT_DR_NORHAILA_ID" class="doc-img" onerror="this.src='👩‍⚕️'">
+      <div class="doc-info">
+        <h4>Dr. Norhaila Adenam</h4>
+        <p>Paediatrician – MMC 43250<br>Imunisasi, growth & development</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========  GALLERY / IPO RECOGNITION  ========= -->
+<section id="gallery" class="container">
+  <h2 class="sect-title">Kenapa PMCK Dipercayai</h2>
+  <p class="sect-sub">MSQH terakredit, IPO recognised, equipment 2024 spec – bukan hospital kecil.</p>
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+    <div class="card"><img src="https://drive.google.com/uc?export=view&id=540683502_1232120612265541_1377937729188199440_n" alt="MSQH certificate" loading="lazy"><div class="card-body"><h4>MSQH Terakredit</h4><p>Standard hospital antarabangsa – audit berkala.</p></div></div>
+    <div class="card"><img src="https://drive.google.com/uc?export=view&id=PMC_Hospital_Alor_Setar" alt="Hospital facade" loading="lazy"><div class="card-body"><h4>640-CT & 1.5T MRI</h4><p>Imaging terkini – detect awal, intervene cepat.</p></div></div>
+    <div class="card"><img src="https://drive.google.com/uc?export=view&id=PMCK_logo" alt="PMCK logo" loading="lazy"><div class="card-body"><h4>IPO Recognition</h4><p>PMCK Berhad – dibeli pakar & institusi – bukan “klinik biasa”.</p></div></div>
+  </div>
+</section>
+
+<!-- =========  CONTACT / APPOINTMENT FORM  ========= -->
+<section id="contact" class="container">
+  <h2 class="sect-title">Buat Janji / Tanya Loghat</h2>
+  <p class="sect-sub">Isi form – kami WhatsApp hang balik dalam 5 minit (bahasa Kedah, promise!).</p>
+  <form action="https://formspree.io/f/yourFormId" method="POST">
+    <input type="text" name="nama" placeholder="Nama penuh" required>
+    <input type="tel" name="telefon" placeholder="No. telefon (WhatsApp)" required>
+    <select name="servis" required>
+      <option value="">Pilih servis...</option>
+      <option>Emergency 24 jam</option>
+      <option>Janji pakar O&G</option>
+      <option>Janji pakar kanak-kanak</option>
+      <option>Health screening</option>
+      <option>Lain-lain</option>
+    </select>
+    <textarea name="mesej" rows="4" placeholder="Mesej (boleh guna loghat)"></textarea>
+    <button type="submit" class="btn form-btn">Hantar &nbsp; ➜</button>
+  </form>
+
+  <div style="margin-top:2rem;text-align:center">
+    <p>Atau terus:</p>
+    <a href="https://wa.me/601110523600" class="btn btn-gold">📱 WhatsApp</a>
+    <a href="tel:+6047342888" class="btn btn-white">☎ Call 24 jam</a>
+  </div>
+</section>
+
+<!-- =========  FOOTER  ========= -->
+<footer>
+  <div class="container">
+    <p><strong>Putra Medical Centre Kedah (PMCK)</strong></p>
+    <p>888, Jalan Sekerat, Off Jalan Putra, 05100 Alor Setar, Kedah</p>
+    <p>24 jam | +604-734 2888 | pmc@putramedicentre.com.my</p>
+    <div class="social">
+      <a href="https://wa.me/601110523600" aria-label="WhatsApp">📱</a>
+      <a href="https://www.facebook.com/putramedtoday" aria-label="Facebook">📘</a>
+      <a href="https://www.tiktok.com/@putramedicalcentre" aria-label="TikTok">🎵</a>
+    </div>
+    <p style="margin-top:1rem;font-size:.8rem">© 2025 PMCK Berhad (200001029676). Hospital bahasa Kedah pertama.</p>
+  </div>
+</footer>
+
+<!-- =========  STICKY WHATSAPP  ========= -->
+<a href="https://wa.me/601110523600" class="wa-fix" aria-label="WhatsApp PMCK"></a>
+
+<!-- =========  JS  ========= -->
+<script>
+  // hamburger toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+  // auto-close mobile menu on link click
+  document.querySelectorAll('#navLinks a').forEach(link => 
+    link.addEventListener('click', () => navLinks.classList.remove('open'))
+  );
+
+  // smooth reveal on scroll (tiny library-free)
+  const io = new IntersectionObserver(entries => 
+    entries.forEach(e => e.target.classList.toggle('show', e.isIntersecting))
+  );
+  document.querySelectorAll('.card').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
